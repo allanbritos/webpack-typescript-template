@@ -43,9 +43,14 @@ module.exports = {
         test: /\.ts$/,
         exclude: /node_modules/,
         include: [resolve('src'), resolve('node_modules')],
-        use: {
-          loader: 'ts-loader',
-        },
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              configFile: resolve('tsconfig.json'),
+            },
+          },
+        ],
       },
     ],
   },
